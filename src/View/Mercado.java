@@ -74,10 +74,23 @@ public class Mercado {
         Mercado.produtos.add(produto);
         System.out.println("O PRODUTO " + produto.getNome() + " FOI CADASTRADO COM SUCESSO.");
         Utils.pausar(2);
+        Mercado.menu();
     }
 
     private static void listarProdutos() {
-        System.out.println("LISTANDO PRODUTOS ... ");
+        if (Mercado.produtos.size() > 0) {
+            System.out.println("LISTAGEM DE PRODUTOS ");
+            System.out.println();
+
+            for (Produto p : Mercado.produtos) {
+                System.out.println(p);
+                System.out.println();
+            }
+        } else {
+            System.out.println("AINDA NÃO EXISTEM PRODUTOS CADASTRADOS. ");
+        }
+        Utils.pausar(2);
+        Mercado.menu();
     }
 
     private static void comprarProdutos() {
